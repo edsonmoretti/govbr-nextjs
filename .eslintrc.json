@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
