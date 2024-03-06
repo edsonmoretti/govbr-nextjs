@@ -23,7 +23,7 @@ git clone https://github.com/edsonmoretti/govbr-nextjs.git
 Navegue até o diretório do projeto e instale as dependências necessárias:
 
 ```bash
-cd govbr-nextauth
+cd govbr-nextjs
 npm install
 ```
 
