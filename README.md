@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GovBR NextJS
 
-## Getting Started
+Este projeto é uma aplicação Next.js que usa o [Design System do Governo Brasileiro](https://gov.br/ds).
 
-First, run the development server:
+Também foi incluído o modelo de integração com o serviço de [Single Sign-On (SSO) do Governo Brasileiro](https://acesso.gov.br/roteiro-tecnico/).
+
+
+## Pré-requisitos
+
+- Node.js (versão 20.x)
+- npm (versão 10.x)
+
+## Clonar o repositório
+
+Para clonar o repositório, execute o seguinte comando no seu terminal:
+
+```bash
+git clone https://github.com/edsonmoretti/govbr-nextjs.git
+```
+
+## Instalar dependências
+
+Navegue até o diretório do projeto e instale as dependências necessárias:
+
+```bash
+cd govbr-nextauth
+npm install
+```
+
+## Configuração
+
+O projeto utiliza variáveis de ambiente para configuração. Você pode encontrar um exemplo de configuração no arquivo `.env.example`. Copie este arquivo para um novo arquivo chamado `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Em seguida, abra o arquivo `.env` e substitua os espaços reservados pelos seus valores reais:
+
+```dotenv
+NODE_ENV=development
+NEXT_PUBLIC_API_URL=https://localhost/api
+
+# GOVBR
+NEXT_PUBLIC_GOVBR_URL_PROVIDER=https://sso.staging.acesso.gov.br
+GOVBR_URL_SERVICE=https://api.staging.acesso.gov.br
+GOVBR_REDIRECT_URI=<SUA_URL_DE_REDIRECIONAMENTO>
+GOVBR_SCOPES=openid+email+phone+profile
+GOVBR_CLIENT_ID=<ID_DA_APLICAÇÃO>
+GOVBR_SECRET=<CHAVE_PRIVADA>
+```
+
+## Iniciar a aplicação
+
+Você pode iniciar a aplicação no modo de desenvolvimento com:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+OBS.: O comando `npm run dev` inicia a aplicação com https e com o certificado auto-assinado. Caso queira iniciar a aplicação sem https, execute o comando `npm run dev-http`.
+
+Para produção, primeiro construa a aplicação:
+
+```bash
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Em seguida, inicie a aplicação:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Uso
 
-## Learn More
+Depois que a aplicação estiver em execução, você pode acessar `https://localhost` (ou seu host e porta configurados) em seu navegador. Você verá a página inicial da aplicação, onde poderá fazer login usando o serviço Gov.br SSO.
 
-To learn more about Next.js, take a look at the following resources:
+## Contribuições
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contribuições são bem-vindas. Por favor, abra uma issue ou envie um pull request no GitHub.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Imagens
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
