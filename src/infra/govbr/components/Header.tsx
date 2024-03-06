@@ -2,15 +2,15 @@
 import React, { useEffect } from 'react'
 import { BrButton, BrItem, BrList } from '@govbr-ds/react-components'
 import Link from 'next/link'
-import { MenuItemModel } from '@/govbr/cadsia/govbr/models'
-import { BrHeaderSearch } from '@/govbr/cadsia/govbr/components/BrHeaderSearch'
+import { MenuItemModel } from '@/govbr/infra/govbr/models'
+import { BrHeaderSearch } from '@/govbr/infra/govbr/components/BrHeaderSearch'
 import {
   FaAdjust,
   FaChartBar,
   FaComment,
   FaHeadset,
-} from '@/govbr/cadsia/govbr/components/icons/fa'
-import HeaderLogin from '@/govbr/cadsia/govbr/components/menu/HeaderLogin'
+} from '@/govbr/infra/govbr/components/icons/fa'
+import HeaderLogin from '@/govbr/infra/govbr/components/menu/HeaderLogin'
 
 type BrHeaderProps = {}
 
@@ -33,6 +33,10 @@ const Header = (props: BrHeaderProps) => {
       {
         label: 'Sobre',
         href: '/sobre',
+      },
+      {
+        label: 'Desing System',
+        href: '/ds',
       },
       {
         label: 'Contato',

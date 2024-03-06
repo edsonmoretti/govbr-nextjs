@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { MenuProps } from '@/govbr/cadsia/govbr/models'
+import { MenuProps } from '@/govbr/govbr/models'
 
 const MenuFolder = ({ label, icon, href, children }: MenuProps) => {
   return (

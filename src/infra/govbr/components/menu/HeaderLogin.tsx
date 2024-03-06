@@ -1,11 +1,12 @@
 'use client'
 import React, { useEffect } from 'react'
 import { BrButton } from '@govbr-ds/react-components'
-import govbrOauth from '@/govbr/cadsia/govbr/oauth'
+import govbrOauth from '@/govbr/infra/govbr/oauth'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { GovBrUserClaimsResponseModel } from '@/govbr/cadsia/govbr/models/GovBrAuthResponseModel'
-import { ApiService } from '@/govbr/cadsia/services'
+import { GovBrUserClaimsResponseModel } from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
+import { ApiService } from '@/govbr/services'
 import { setCookie } from 'cookies-next'
+import Link from 'next/link'
 
 type BrHeaderProps = {}
 
@@ -24,6 +25,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
     setLogouting(true)
     setUser(undefined)
     setUserCookies({ access_token: '', id_token: '' })
+    setUserImageProfile()
     router.push('/api/auth/logout')
   }
 
@@ -37,6 +39,27 @@ const HeaderLogin = (props: BrHeaderProps) => {
       path: '/',
     })
   }
+
+  const setUserImageProfile = () => {
+    const user = govbrOauth.getLocalAuthUser()
+    if (user) {
+      setUser(user)
+      user
+        ?.getPictureData()
+        .then((res: string) => {
+          if (res) {
+            setUserImage(res)
+          }
+        })
+        .catch((err: any) => {
+          setUserImage('')
+          console.error(err)
+        })
+    } else {
+      setUserImage('')
+    }
+  }
+
   // ---------- EFFECTS ------------
   // run only if url has code
   useEffect(() => {
@@ -52,6 +75,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
             const localAuthUser = govbrOauth.getLocalAuthUser()
             if (localAuthUser) {
               setUser(localAuthUser as GovBrUserClaimsResponseModel)
+              setUserImageProfile()
             }
           })
           .catch(err => {
@@ -65,20 +89,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
   }, [searchParams])
 
   useEffect(() => {
-    const user = govbrOauth.getLocalAuthUser()
-    if (user) {
-      setUser(user)
-      user
-        ?.getPictureData()
-        .then(res => {
-          if (res) {
-            setUserImage(res)
-          }
-        })
-        .catch(err => {
-          console.error(err)
-        })
-    }
+    setUserImageProfile()
   }, [])
 
   const LoggedComponent = () => {
@@ -90,8 +101,8 @@ const HeaderLogin = (props: BrHeaderProps) => {
           id="avatar-dropdown-trigger"
           data-toggle="dropdown"
           data-target="avatar-menu"
-          aria-label="Olá, Fulano"
-          onClick={() => setUserMenuVisible(!userMenuVisible)}
+          aria-label={'Olá, ' + user?.name.split(' ')[0]}
+          onClick={() => setUserMenuVisible(true)}
         >
           <span className="br-avatar" title="Fulano da Silva">
             {/*<span className="content bg-orange-vivid-30 text-pure-0">E</span>*/}
@@ -124,13 +135,14 @@ const HeaderLogin = (props: BrHeaderProps) => {
           style={{ zIndex: 1000 }}
           className="br-list"
           id="avatar-menu"
-          hidden={userMenuVisible}
+          hidden={!userMenuVisible}
           role="menu"
+          onMouseLeave={() => setUserMenuVisible(false)}
           aria-labelledby="avatar-dropdown-trigger"
         >
-          <a className="br-item" href="#" role="menuitem">
+          <Link className="br-item" href={'/perfil'} role="menuitem">
             Dados pessoais
-          </a>
+          </Link>
           <a className="br-item" href="#" role="menuitem">
             Privacidade
           </a>

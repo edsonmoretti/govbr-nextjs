@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@govbr-ds/core/dist/core.min.css'
 import './globals.css'
-import Footer from '@/govbr/cadsia/govbr/components/Footer'
-import Header from '@/govbr/cadsia/govbr/components/Header'
-import Nav from '@/govbr/cadsia/govbr/components/Nav'
+import Footer from '@/govbr/infra/govbr/components/Footer'
+import Header from '@/govbr/infra/govbr/components/Header'
+import Nav from '@/govbr/infra/govbr/components/Nav'
 import Script from 'next/script'
 import React from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
-import Sidebar from '@/govbr/cadsia/govbr/components/Sidebar'
-import BrCookieBar from '@/govbr/cadsia/govbr/components/BrCookieBar'
+import Sidebar from '@/govbr/infra/govbr/components/Sidebar'
+import BrCookieBar from '@/govbr/infra/govbr/components/BrCookieBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        <title>CadSia</title>
+        <title>Gov.BR</title>
         <link rel="stylesheet" href="/css/rawline.css" />
         <link
           rel="stylesheet"

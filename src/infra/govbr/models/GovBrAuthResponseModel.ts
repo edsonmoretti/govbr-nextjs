@@ -28,4 +28,6 @@ export type GovBrUserClaimsResponseModel = {
   profile: string
   scope: string[]
   sub: string
+  cpf: () => string
+  cpfFormatted: () => string
 }

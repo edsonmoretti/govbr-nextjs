@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import MenuFolder from '@/govbr/cadsia/govbr/components/menu/MenuFolder'
-import MenuItem from '@/govbr/cadsia/govbr/components/menu/MenuItem'
-import MenuInternalFolder from '@/govbr/cadsia/govbr/components/menu/MenuInternalFolder'
-import { FaBell, FaHeart } from '@/govbr/cadsia/govbr/components/icons/fa'
+import MenuFolder from '@/govbr/infra/govbr/components/menu/MenuFolder'
+import MenuItem from '@/govbr/infra/govbr/components/menu/MenuItem'
+import MenuInternalFolder from '@/govbr/infra/govbr/components/menu/MenuInternalFolder'
+import { FaBell, FaHeart } from '@/govbr/infra/govbr/components/icons/fa'
 
 type BrHeaderProps = {}
 

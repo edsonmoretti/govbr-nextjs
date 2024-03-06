@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrButton } from '@govbr-ds/react-components'
-import { FaSearch, FaTimes } from '@/govbr/cadsia/govbr/components/icons/fa'
+import { FaSearch, FaTimes } from '@/govbr/infra/govbr/components/icons/fa'
 
 export const BrHeaderSearch = () => {
   const [searchText, setSearchText] = React.useState('')

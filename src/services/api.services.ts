@@ -1,4 +1,4 @@
-import { Service } from '@/govbr/cadsia/services'
+import { Service } from '@/govbr/services'
 
 export class ApiService extends Service {
   getToken(code: string): Promise<Response> {

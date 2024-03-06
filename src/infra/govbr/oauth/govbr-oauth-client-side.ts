@@ -2,7 +2,7 @@ import { jwtDecode } from 'jwt-decode'
 import {
   GovBrAuthResponseModel,
   GovBrUserClaimsResponseModel,
-} from '@/govbr/cadsia/govbr/models/GovBrAuthResponseModel'
+} from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
 import { getCookie } from 'cookies-next'
 
 const getUserPicture = async (
@@ -62,6 +62,20 @@ const decodeClaims = (
       image = ''
     }
     return image
+  }
+  const formatCPF = (cpf: string): string => {
+    const cpfNumbers = cpf.replace(/\D/g, '') // remove all non-numeric characters
+    const formattedCPF = cpfNumbers.replace(
+      /(\d{3})(\d{3})(\d{3})(\d{2})/,
+      '$1.$2.$3-$4',
+    ) // apply the format
+    return formattedCPF
+  }
+  claims.cpf = () => {
+    return claims.sub
+  }
+  claims.cpfFormatted = () => {
+    return formatCPF(claims.sub)
   }
   return claims
 }
