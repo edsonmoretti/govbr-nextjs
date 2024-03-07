@@ -1,6 +1,7 @@
 import React from 'react'
-import { MenuItemProps } from '@/govbr/govbr/models'
+
 import Link from 'next/link'
+import { MenuItemProps } from '@/govbr/infra/govbr/models'
 
 const MenuItem = ({ children, icon, href }: MenuItemProps) => {
   return (
