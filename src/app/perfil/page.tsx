@@ -8,6 +8,8 @@ import govbrOauth from '@/govbr/infra/govbr/oauth'
 import { useRouter } from 'next/navigation'
 import { FaCheck, FaTimes } from '@/govbr/infra/govbr/components/icons/fa'
 import Link from 'next/link'
+import { storage } from '@/govbr/data/storage'
+import Image from 'next/image'
 
 export default function UserProfile() {
   const [user, setUser] = React.useState<GovBrUserClaimsResponseModel>()
@@ -34,9 +36,10 @@ export default function UserProfile() {
         }
       })
     } else {
+      storage.clearTokens()
       router.push('/')
     }
-  }, [])
+  }, [router])
 
   return (
     <>
@@ -45,7 +48,7 @@ export default function UserProfile() {
           <div className="row">
             <div className="col-sm">
               <div className="profile-image">
-                <img src={userImage} alt={user.name} />
+                <Image src={userImage} alt={user.name} />
               </div>
             </div>
             <div className="col-sm">

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 type BrBreadcrumbProps = {}
@@ -14,7 +14,6 @@ const BrBreadcrumb = ({}: BrBreadcrumbProps) => {
   const paths = usePathname()
   const pathNames = paths.split('/').filter(path => path)
   const [crumbs, setCrumbs] = React.useState<Breadcrumb[]>([])
-  const router = useRouter()
   useEffect(() => {
     const crumbsTmp: Breadcrumb[] = [
       {
@@ -29,7 +28,7 @@ const BrBreadcrumb = ({}: BrBreadcrumbProps) => {
       crumbsTmp.push({ href, label })
     })
     setCrumbs(crumbsTmp.flat())
-  }, [paths])
+  }, [paths, pathNames])
 
   return (
     <>
@@ -40,14 +39,14 @@ const BrBreadcrumb = ({}: BrBreadcrumbProps) => {
             return (
               <>
                 {breadcrumb.isHome && (
-                  <li className="crumb home">
+                  <li className="crumb home" key={index}>
                     <Link href={'/'}>
                       <i className="fas fa-home"></i> Página inicial
                     </Link>
                   </li>
                 )}
                 {!breadcrumb.isHome && (
-                  <li className={'crumb'}>
+                  <li className={'crumb'} key={index}>
                     <i className={'icon fas fa-chevron-right'}></i>
                     <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
                   </li>

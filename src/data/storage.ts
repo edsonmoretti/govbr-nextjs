@@ -1,6 +1,6 @@
 import { deleteCookie, getCookie, getCookies, setCookie } from 'cookies-next'
 
-const storage = {
+export const storage = {
   getCookies: getCookies,
   setCookie: setCookie,
   getCookie: getCookie,
