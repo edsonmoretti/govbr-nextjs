@@ -10,6 +10,7 @@ import React from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Sidebar from '@/govbr/infra/govbr/components/Sidebar'
 import BrCookieBar from '@/govbr/infra/govbr/components/BrCookieBar'
+import BrBreadcrumb from '@/govbr/infra/govbr/components/BrBreadcrumb'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -47,7 +48,10 @@ export default function RootLayout({
               <div className="container-fluid d-flex">
                 <div className="row">
                   <Sidebar />
-                  {children}
+                  <div style={{ marginTop: -20 }}>
+                    <BrBreadcrumb />
+                    {children}
+                  </div>
                 </div>
               </div>
             </main>

@@ -17,12 +17,12 @@ const HeaderLogin = (props: BrHeaderProps) => {
   const [user, setUser] = React.useState<GovBrUserClaimsResponseModel>()
   const [userImage, setUserImage] = React.useState<string>('')
   const [userMenuVisible, setUserMenuVisible] = React.useState(false)
-  const [logouting, setLogouting] = React.useState(false)
+  const [loggingOut, setLoggingOut] = React.useState(false)
   const authInGovBr = () => {
     void router.push('/api/auth/login')
   }
   const logoutGovBr = async () => {
-    setLogouting(true)
+    setLoggingOut(true)
     setUser(undefined)
     setUserCookies({ access_token: '', id_token: '' })
     setUserImageProfile()
@@ -79,6 +79,8 @@ const HeaderLogin = (props: BrHeaderProps) => {
             }
           })
           .catch(err => {
+            setUser(undefined)
+            setUserImage('')
             console.error(err)
           })
           .finally(() => {
@@ -173,7 +175,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
               data-trigger="login"
               onClick={authInGovBr}
             >
-              {!logouting && (
+              {!loggingOut && (
                 <>
                   Entrar com&nbsp;
                   <img
@@ -182,7 +184,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
                   />{' '}
                 </>
               )}
-              {logouting && <>Saindo...</>}
+              {loggingOut && <>Saindo...</>}
             </BrButton>
           </div>
           <div className="header-avatar"></div>

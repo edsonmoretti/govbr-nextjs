@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { BrButton, BrItem, BrList } from '@govbr-ds/react-components'
 import Link from 'next/link'
 import { MenuItemModel } from '@/govbr/infra/govbr/models'
@@ -146,7 +146,9 @@ const Header = (props: BrHeaderProps) => {
                   <i className="fas fa-search" aria-hidden="true"></i>
                 </button>
               </div>
-              <HeaderLogin />
+              <Suspense>
+                <HeaderLogin />
+              </Suspense>
             </div>
           </div>
           <div className="header-bottom">
