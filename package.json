@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "start https://localhost && next dev --experimental-https -p 443",
-    "dev-http": "next dev -p 80",
+    "dev": "start https://localhost:3000 && next dev --experimental-https",
+    "dev-443": "start https://localhost && next dev --experimental-https -p 443",
+    "dev-http": "next dev",
+    "dev-http-80": "next dev -p 80",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

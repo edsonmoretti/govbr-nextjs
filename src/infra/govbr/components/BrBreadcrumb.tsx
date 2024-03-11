@@ -28,7 +28,7 @@ const BrBreadcrumb = ({}: BrBreadcrumbProps) => {
       crumbsTmp.push({ href, label })
     })
     setCrumbs(crumbsTmp.flat())
-  }, [paths, pathNames])
+  }, [paths])
 
   return (
     <>
