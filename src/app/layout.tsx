@@ -44,15 +44,16 @@ export default function RootLayout({
           <div className="template-base">
             <Nav />
             <Header />
+            <Sidebar />
+            <div className="container-fluid d-flex" style={{ marginTop: -20 }}>
+              <BrBreadcrumb />
+            </div>
             <main className="d-flex flex-fill mb-5" id="main">
-              <div className="container-fluid d-flex">
-                <div className="row">
-                  <Sidebar />
-                  <div style={{ marginTop: -20 }}>
-                    <BrBreadcrumb />
-                    {children}
-                  </div>
-                </div>
+              <div
+                className="container-fluid d-flex"
+                style={{ marginTop: -10 }}
+              >
+                {children}
               </div>
             </main>
             <Footer />

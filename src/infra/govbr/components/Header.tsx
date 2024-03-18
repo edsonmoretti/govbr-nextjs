@@ -11,6 +11,7 @@ import {
   FaHeadset,
 } from '@/govbr/infra/govbr/components/icons/fa'
 import HeaderLogin from '@/govbr/infra/govbr/components/menu/HeaderLogin'
+import { Tooltip } from '@chakra-ui/react'
 
 type BrHeaderProps = {}
 
@@ -75,7 +76,9 @@ const Header = (props: BrHeaderProps) => {
             <div className="header-logo">
               <img src={logo} alt="logo" />
               <span className="br-divider vertical"></span>
-              <div className="header-sign">Assinatura</div>
+              <Tooltip label={'Assinatura'} aria-label={'Assinatura'}>
+                <div className="header-sign pointer">Assinatura</div>
+              </Tooltip>
             </div>
             <div className="header-actions">
               <div className="header-links dropdown">
@@ -100,7 +103,9 @@ const Header = (props: BrHeaderProps) => {
                   <>
                     {menuItens.map((menu, index) => (
                       <BrItem key={index}>
-                        <Link href={menu.href}>{menu.label}</Link>
+                        <Link key={index} href={menu.href}>
+                          {menu.label}
+                        </Link>
                       </BrItem>
                     ))}
                   </>
