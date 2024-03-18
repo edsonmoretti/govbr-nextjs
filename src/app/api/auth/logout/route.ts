@@ -6,5 +6,5 @@ type ResponseData = {
 
 export async function GET(request: Request): Promise<Response> {
   const url = govbrOauth.logoutURL()
-  return Response.redirect(url as string)
+  return Response.redirect(url)
 }

@@ -23,25 +23,29 @@ const invalidConfig = (config: ConfigObjectModel) => {
   return true
 }
 
-export const authorizeURL = () => {
+export const authorizeURL = (): string => {
   const config = getConfiguration()
   if (invalidConfig(config)) {
     console.error(
       `Erro: authorize - Os parâmetros REDIRECT_URI, CLIENT_ID e SECRET, são obrigatórios`,
     )
-    return false
+    throw new Error(
+      `Erro: authorize - Os parâmetros REDIRECT_URI, CLIENT_ID e SECRET, são obrigatórios`,
+    )
   }
   return `${config.URL_PROVIDER}/authorize?response_type=${generalConfig.RESPONSE_TYPE}&client_id=${config.CLIENT_ID}&scope=${config.SCOPES}&redirect_uri=${config.REDIRECT_URI}`
 }
 
-export const logoutURL = () => {
+export const logoutURL = (): string => {
   //https://sso.staging.acesso.gov.br/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html");
   const config = getConfiguration()
   if (invalidConfig(config)) {
     console.error(
       `Erro: authorize - Os parâmetros REDIRECT_URI, CLIENT_ID e SECRET, são obrigatórios`,
     )
-    return false
+    throw new Error(
+      `Erro: authorize - Os parâmetros REDIRECT_URI, CLIENT_ID e SECRET, são obrigatórios`,
+    )
   }
   return `${config.URL_PROVIDER}/logout?post_logout_redirect_uri=${config.REDIRECT_URI}`
 }
