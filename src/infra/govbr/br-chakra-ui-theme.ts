@@ -7,9 +7,9 @@ export const brChakraUiTheme = extendTheme({
       baseStyle: {
         bg: '#0C326F',
         color: '#f7fafc',
-        padding: '1',
-        borderRadius: '5',
-        border: '1px solid #154C21',
+        padding: '1 2 1 2',
+        borderRadius: '7',
+        shadow: '0 0 5px 0 rgba(0, 0, 0, 0.2)',
       },
     },
   },
