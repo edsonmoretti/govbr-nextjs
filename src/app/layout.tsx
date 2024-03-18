@@ -11,6 +11,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import Sidebar from '@/govbr/infra/govbr/components/Sidebar'
 import BrCookieBar from '@/govbr/infra/govbr/components/BrCookieBar'
 import BrBreadcrumb from '@/govbr/infra/govbr/components/BrBreadcrumb'
+import BrGoTopButton from '@/govbr/infra/govbr/components/BrGoTopButton'
+import { ChakraProvider } from '@chakra-ui/react'
+import { brChakraUiTheme } from '@/govbr/infra/govbr/br-chakra-ui-theme'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,24 +44,30 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <>
-          <div className="template-base">
-            <Nav />
-            <Header />
-            <Sidebar />
-            <div className="container-fluid d-flex" style={{ marginTop: -20 }}>
-              <BrBreadcrumb />
-            </div>
-            <main className="d-flex flex-fill mb-5" id="main">
+          <ChakraProvider theme={brChakraUiTheme}>
+            <div className="template-base">
+              <Nav />
+              <Header />
+              <Sidebar />
               <div
                 className="container-fluid d-flex"
-                style={{ marginTop: -10 }}
+                style={{ marginTop: -20 }}
               >
-                {children}
+                <BrBreadcrumb />
               </div>
-            </main>
-            <Footer />
-            <BrCookieBar />
-          </div>
+              <main className="d-flex flex-fill mb-5" id="main">
+                <div
+                  className="container-fluid d-flex"
+                  style={{ marginTop: -10 }}
+                >
+                  {children}
+                </div>
+              </main>
+              <Footer />
+              <BrCookieBar />
+              <BrGoTopButton />
+            </div>
+          </ChakraProvider>
           <Script src="/core-init.js" />
         </>
       </body>
