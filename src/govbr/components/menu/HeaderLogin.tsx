@@ -7,7 +7,7 @@ import { GovBrUserClaimsResponseModel } from '@/govbr/models/GovBrAuthResponseMo
 import { setCookie } from 'cookies-next'
 import Link from 'next/link'
 import { ApiService } from '@/services'
-import Image from 'next/image'
+import { Image } from '@chakra-ui/react'
 
 type BrHeaderProps = {}
 
@@ -113,6 +113,8 @@ const HeaderLogin = (props: BrHeaderProps) => {
               <Image
                 src={userImage}
                 alt="gov.br"
+                w={30}
+                h={30}
                 style={{
                   borderRadius: '50%',
                   minHeight: '30px',
@@ -180,9 +182,11 @@ const HeaderLogin = (props: BrHeaderProps) => {
                 <>
                   Entrar com&nbsp;
                   <Image
-                    src="https://www.gov.br/++theme++padrao_govbr/img/govbr-colorido-b.png"
+                    src="/images/govbr-colorido-b.png"
                     alt="gov.br"
-                  />{' '}
+                    w={'4rem'}
+                    h={'100%'}
+                  />
                 </>
               )}
               {loggingOut && <>Saindo...</>}
