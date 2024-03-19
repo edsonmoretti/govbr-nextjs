@@ -12,18 +12,19 @@ import {
 } from '@/govbr/components/icons/fa'
 import HeaderLogin from '@/govbr/components/menu/HeaderLogin'
 import { Image, Tooltip } from '@chakra-ui/react'
+import govbrThemeConfig from '@/govbr/theme.config'
 
 type BrHeaderProps = {}
 
 const Header = (props: BrHeaderProps) => {
   const [menuItens, setMenuItens] = React.useState<MenuItemModel[]>([])
-  const [logo, setLogo] = React.useState<string>('')
+  const [logo, setLogo] = React.useState<string>('/images/logo-govbr.png')
   const [functionalityMenuItens, setFunctionalityMenuItens] = React.useState<
     MenuItemModel[]
   >([])
 
   useEffect(() => {
-    setLogo('/images/logo-govbr.png')
+    setLogo(govbrThemeConfig.logo.src)
     setMenuItens([
       {
         label: 'Início',
