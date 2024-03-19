@@ -2,16 +2,17 @@
 import React, { Suspense, useEffect } from 'react'
 import { BrButton, BrItem, BrList } from '@govbr-ds/react-components'
 import Link from 'next/link'
-import { MenuItemModel } from '@/govbr/infra/govbr/models'
-import { BrHeaderSearch } from '@/govbr/infra/govbr/components/BrHeaderSearch'
+import { MenuItemModel } from '@/govbr/models'
+import { BrHeaderSearch } from '@/govbr/components/BrHeaderSearch'
 import {
   FaAdjust,
   FaChartBar,
   FaComment,
   FaHeadset,
-} from '@/govbr/infra/govbr/components/icons/fa'
-import HeaderLogin from '@/govbr/infra/govbr/components/menu/HeaderLogin'
+} from '@/govbr/components/icons/fa'
+import HeaderLogin from '@/govbr/components/menu/HeaderLogin'
 import { Tooltip } from '@chakra-ui/react'
+import Image from 'next/image'
 
 type BrHeaderProps = {}
 
@@ -74,7 +75,7 @@ const Header = (props: BrHeaderProps) => {
         <div className="container-fluid">
           <div className="header-top">
             <div className="header-logo">
-              <img src={logo} alt="logo" />
+              <Image src={logo} alt="logo" />
               <span className="br-divider vertical"></span>
               <Tooltip label={'Assinatura'} aria-label={'Assinatura'}>
                 <div className="header-sign pointer">Assinatura</div>

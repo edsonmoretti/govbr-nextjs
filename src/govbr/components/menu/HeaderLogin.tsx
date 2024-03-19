@@ -1,12 +1,13 @@
 'use client'
 import React, { useEffect } from 'react'
 import { BrButton } from '@govbr-ds/react-components'
-import govbrOauth from '@/govbr/infra/govbr/oauth'
+import govbrOauth from '@/govbr/oauth'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { GovBrUserClaimsResponseModel } from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
-import { ApiService } from '@/govbr/services'
+import { GovBrUserClaimsResponseModel } from '@/govbr/models/GovBrAuthResponseModel'
 import { setCookie } from 'cookies-next'
 import Link from 'next/link'
+import { ApiService } from '@/services'
+import Image from 'next/image'
 
 type BrHeaderProps = {}
 
@@ -109,7 +110,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
           <span className="br-avatar" title="Fulano da Silva">
             {/*<span className="content bg-orange-vivid-30 text-pure-0">E</span>*/}
             {userImage && (
-              <img
+              <Image
                 src={userImage}
                 alt="gov.br"
                 style={{
@@ -178,7 +179,7 @@ const HeaderLogin = (props: BrHeaderProps) => {
               {!loggingOut && (
                 <>
                   Entrar com&nbsp;
-                  <img
+                  <Image
                     src="https://www.gov.br/++theme++padrao_govbr/img/govbr-colorido-b.png"
                     alt="gov.br"
                   />{' '}

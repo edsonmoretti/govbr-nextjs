@@ -1,5 +1,15 @@
 # Start from the official Node.js LTS image
-FROM node:20-alpine
+FROM node:20.11.1-alpine
+
+# ENVs
+#ENV NODE_ENV=development
+ENV NEXT_PUBLIC_API_URL=https://agatha.test/api
+ENV NEXT_PUBLIC_GOVBR_URL_PROVIDER=https://sso.staging.acesso.gov.br
+ENV GOVBR_URL_SERVICE=https://api.staging.acesso.gov.br
+ENV GOVBR_REDIRECT_URI=http://agatha.test/gestaoriscos/api/login/openid
+ENV GOVBR_SCOPES=openid+email+phone+profile
+ENV GOVBR_CLIENT_ID=enimpacto.pre.intra.economia
+ENV GOVBR_SECRET=secret
 
 # Set the working directory
 WORKDIR /app

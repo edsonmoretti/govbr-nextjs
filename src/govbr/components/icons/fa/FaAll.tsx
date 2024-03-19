@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaIcon } from '@/govbr/infra/govbr/components/icons/fa/FaIcon'
+import { FaIcon } from '@/govbr/components/icons/fa/FaIcon'
 
 export const FaBell = () => {
   return <FaIcon className={'fas fa-bell'} />

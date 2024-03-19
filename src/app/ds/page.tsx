@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 export default function Sobre() {
   return (
@@ -97,7 +98,7 @@ export default function Sobre() {
       </p>
       <h2 id="o-design-system">O Design System</h2>
       <p>
-        <img
+        <Image
           src="https://docs-ds.estaleiro.serpro.gov.br/docs/introducao/sobre/imagens/imagens_ds.png"
           alt="Alguns elementos definidos para compor o Design System - Família Tipográfica, Paleta de Cores, Padronização de Botões e Logotipo."
         />

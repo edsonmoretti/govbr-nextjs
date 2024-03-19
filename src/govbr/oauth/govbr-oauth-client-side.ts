@@ -2,7 +2,7 @@ import { jwtDecode } from 'jwt-decode'
 import {
   GovBrAuthResponseModel,
   GovBrUserClaimsResponseModel,
-} from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
+} from '@/govbr/models/GovBrAuthResponseModel'
 import { getCookie } from 'cookies-next'
 
 const getUserPicture = async (

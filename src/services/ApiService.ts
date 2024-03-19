@@ -1,5 +1,5 @@
-import { Service } from '@/govbr/services'
-import { IApiService } from '@/govbr/domain/service-interfaces/IApiService'
+import { IApiService } from '@/domain/service-interfaces/IApiService'
+import { Service } from '@/services/Service'
 
 export class ApiService extends Service implements IApiService {
   getToken(code: string): Promise<Response> {

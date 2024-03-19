@@ -1,4 +1,4 @@
-import govbrOauth from '@/govbr/infra/govbr/oauth'
+import govbrOauth from '@/govbr/oauth'
 
 type ResponseData = {
   message: string

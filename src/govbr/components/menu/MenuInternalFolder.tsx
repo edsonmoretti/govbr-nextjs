@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { MenuProps } from '@/govbr/infra/govbr/models'
+import { MenuProps } from '@/govbr/models'
 
 const MenuInternalFolder = ({ label, icon, href, children }: MenuProps) => {
   return (

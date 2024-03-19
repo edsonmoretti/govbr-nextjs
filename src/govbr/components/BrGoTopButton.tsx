@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Button, Tooltip } from '@chakra-ui/react'
-import { FaChevronUp } from '@/govbr/infra/govbr/components/icons/fa'
+import { FaChevronUp } from '@/govbr/components/icons/fa'
 
 const BrGoTopButton = () => {
   const [isVisible, setIsVisible] = React.useState(false)

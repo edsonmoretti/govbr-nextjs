@@ -4,11 +4,11 @@ import {
   getCredentialType,
   getToken,
   logoutURL,
-} from '@/govbr/infra/govbr/oauth/govbr-oauth-server-side'
+} from '@/govbr/oauth/govbr-oauth-server-side'
 import {
   getLocalAuth,
   getLocalAuthUser,
-} from '@/govbr/infra/govbr/oauth/govbr-oauth-client-side'
+} from '@/govbr/oauth/govbr-oauth-client-side'
 
 const govbrOauth = {
   authorize: authorizeURL,

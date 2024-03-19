@@ -3,13 +3,13 @@ import React from 'react'
 import {
   GovBrAuthResponseModel,
   GovBrUserClaimsResponseModel,
-} from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
-import govbrOauth from '@/govbr/infra/govbr/oauth'
+} from '@/govbr/models/GovBrAuthResponseModel'
 import { useRouter } from 'next/navigation'
-import { FaCheck, FaTimes } from '@/govbr/infra/govbr/components/icons/fa'
+import { FaCheck, FaTimes } from '@/govbr/components/icons/fa'
 import Link from 'next/link'
-import { storage } from '@/govbr/data/storage'
 import Image from 'next/image'
+import govbrOauth from '@/govbr/oauth'
+import { storage as storage } from '@/data/storage'
 
 export default function UserProfile() {
   const [user, setUser] = React.useState<GovBrUserClaimsResponseModel>()

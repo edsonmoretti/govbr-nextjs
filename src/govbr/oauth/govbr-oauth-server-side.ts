@@ -1,7 +1,7 @@
 import base64 from 'base-64'
-import { ConfigObjectModel } from '@/govbr/infra/govbr/models/ConfigObject.model'
+import { ConfigObjectModel } from '@/govbr/models/ConfigObject.model'
 import { jwtDecode } from 'jwt-decode'
-import { GovBrAuthResponseModel } from '@/govbr/infra/govbr/models/GovBrAuthResponseModel'
+import { GovBrAuthResponseModel } from '@/govbr/models/GovBrAuthResponseModel'
 
 const generalConfig = {
   RESPONSE_TYPE: 'code',
