@@ -1,4 +1,4 @@
-import { IService } from '@/govbr/domain/service-interfaces/IService'
+import { IService } from '@/domain/service-interfaces/IService'
 
 export class Service implements IService {
   apiUrl: string | undefined
