@@ -170,7 +170,7 @@ const Header = (props: BrHeaderProps) => {
                 </button>
               </div>
               <div className="header-info">
-                <div className="header-title">Template básico</div>
+                <div className="header-title">{govbrThemeConfig.siteName}</div>
                 <div className="header-subtitle">Subtítulo do Header</div>
               </div>
             </div>
