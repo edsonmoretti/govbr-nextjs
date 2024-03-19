@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import { Image } from '@chakra-ui/react'
 
 export default function Sobre() {
   return (
@@ -99,7 +99,7 @@ export default function Sobre() {
       <h2 id="o-design-system">O Design System</h2>
       <p>
         <Image
-          src="https://docs-ds.estaleiro.serpro.gov.br/docs/introducao/sobre/imagens/imagens_ds.png"
+          src="/images/imagens_ds.png"
           alt="Alguns elementos definidos para compor o Design System - Família Tipográfica, Paleta de Cores, Padronização de Botões e Logotipo."
         />
       </p>

@@ -7,7 +7,7 @@ import {
 import { useRouter } from 'next/navigation'
 import { FaCheck, FaTimes } from '@/govbr/components/icons/fa'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from '@chakra-ui/react'
 import govbrOauth from '@/govbr/oauth'
 import { storage as storage } from '@/data/storage'
 
