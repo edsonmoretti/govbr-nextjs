@@ -8,6 +8,7 @@ import { setCookie } from 'cookies-next'
 import Link from 'next/link'
 import { ApiService } from '@/services'
 import { Image } from '@chakra-ui/react'
+import { BrLoading } from '@/govbr/components/BrLoading'
 
 type BrHeaderProps = {}
 
@@ -19,8 +20,13 @@ const HeaderLogin = (props: BrHeaderProps) => {
   const [userImage, setUserImage] = React.useState<string>('')
   const [userMenuVisible, setUserMenuVisible] = React.useState(false)
   const [loggingOut, setLoggingOut] = React.useState(false)
+  const [loggingIn, setLoggingIn] = React.useState(false)
   const authInGovBr = () => {
-    void router.push('/api/auth/login')
+    setLoggingIn(true)
+    router.push('/api/auth/login')
+    setTimeout(() => {
+      setLoggingIn(false)
+    }, 2000)
   }
   const logoutGovBr = async () => {
     setLoggingOut(true)
@@ -167,6 +173,16 @@ const HeaderLogin = (props: BrHeaderProps) => {
 
   return (
     <div className="header-login">
+      {loggingOut && (
+        <>
+          <BrLoading label={'Saindo...'} />{' '}
+        </>
+      )}
+      {loggingIn && (
+        <>
+          <BrLoading label={'Redirecionando...'} />{' '}
+        </>
+      )}
       {user ? (
         <LoggedComponent />
       ) : (
@@ -189,7 +205,6 @@ const HeaderLogin = (props: BrHeaderProps) => {
                   />
                 </>
               )}
-              {loggingOut && <>Saindo...</>}
             </BrButton>
           </div>
           <div className="header-avatar"></div>

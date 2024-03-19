@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --experimental-https",
-    "dev-443": "start https://localhost && next dev --experimental-https -p 443",
+    "dev-443": "next dev --experimental-https -p 443",
     "dev-http": "next dev",
     "dev-http-80": "next dev -p 80",
     "build": "next build",
