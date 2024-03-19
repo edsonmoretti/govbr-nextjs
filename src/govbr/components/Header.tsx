@@ -18,13 +18,12 @@ type BrHeaderProps = {}
 
 const Header = (props: BrHeaderProps) => {
   const [menuItens, setMenuItens] = React.useState<MenuItemModel[]>([])
-  const [logo, setLogo] = React.useState<string>('/images/logo-govbr.png')
+  const [logo, setLogo] = React.useState<string>(govbrThemeConfig.logo.src)
   const [functionalityMenuItens, setFunctionalityMenuItens] = React.useState<
     MenuItemModel[]
   >([])
 
   useEffect(() => {
-    setLogo(govbrThemeConfig.logo.src)
     setMenuItens([
       {
         label: 'Início',
